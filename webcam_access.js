@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const webcamFeed = document.getElementById('webcamFeed');
     const takePictureButton = document.getElementById('takePicture');
     const canvas = document.getElementById('canvas');
+    canvas.width = 640;
+    canvas.height = 480;
 
     startWebcamButton.addEventListener('click', async () => {
         try {
@@ -39,10 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to take a picture
     function takePicture(video, canvas) {
-        const context = canvas.getcontext('2d');
+        const context = canvas.getContext('2d');
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         const dataURL = canvas.toDataURL();
         console.log(dataURL); //Log the picture data URL
+        console.log('Picture taken:', dataURL);
     }
 
     // Example: Add a stop button
