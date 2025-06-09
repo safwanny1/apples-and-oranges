@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const startWebcamButton = document.getElementById('startWebcam');
     const webcamFeed = document.getElementById('webcamFeed');
+    const takePictureButton = document.getElementById('takePicture');
+    const canvas = document.getElementById('canvas');
 
     startWebcamButton.addEventListener('click', async () => {
         try {
@@ -21,18 +23,31 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Error accessing webcam: ${err.name} - ${err.message}`);
         }
     });
-});
-// Function to stop the webcam stream
-function stopWebcamStream() {
-    if (webcamFeed.srcObject) {
-        const tracks = webcamFeed.srcObject.getTracks();
-        tracks.forEach(track => track.stop()); // Stop each track
-        webcamFeed.srcObject = null; // Clear the srcObject
-    }
-}
 
-// Example: Add a stop button
-// In HTML: <button id="stopWebcam">Stop Webcam</button>
-// In JS:
-const stopWebcamButton = document.getElementById('stopWebcam');
-stopWebcamButton.addEventListener('click', stopWebcamStream);
+    takePictureButton.addEventListener('click', () => {
+        takePicture(webcamFeed, canvas);
+    });
+
+    // Function to stop the webcam stream
+    function stopWebcamStream() {
+        if (webcamFeed.srcObject) {
+            const tracks = webcamFeed.srcObject.getTracks();
+            tracks.forEach(track => track.stop()); // Stop each track
+            webcamFeed.srcObject = null; // Clear the srcObject
+        }
+    }
+
+    // Function to take a picture
+    function takePicture(video, canvas) {
+        const context = canvas.getcontext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const dataURL = canvas.toDataURL();
+        console.log(dataURL); //Log the picture data URL
+    }
+
+    // Example: Add a stop button
+    // In HTML: <button id="stopWebcam">Stop Webcam</button>
+    // In JS:
+    const stopWebcamButton = document.getElementById('stopWebcam');
+    stopWebcamButton.addEventListener('click', stopWebcamStream);
+});
