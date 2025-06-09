@@ -22,3 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// Function to stop the webcam stream
+function stopWebcamStream() {
+    if (webcamFeed.srcObject) {
+        const tracks = webcamFeed.srcObject.getTracks();
+        tracks.forEach(track => track.stop()); // Stop each track
+        webcamFeed.srcObject = null; // Clear the srcObject
+    }
+}
+
+// Example: Add a stop button
+// In HTML: <button id="stopWebcam">Stop Webcam</button>
+// In JS:
+const stopWebcamButton = document.getElementById('stopWebcam');
+stopWebcamButton.addEventListener('click', stopWebcamStream);
