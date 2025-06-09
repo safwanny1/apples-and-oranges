@@ -10,3 +10,15 @@
 # - Source: [Kaggle – Apple2Orange](https://www.kaggle.com/datasets/balraj98/apple2orange-dataset)
 # - Organized into `train/` and `test/` folders
 
+## ⚙️ Installation
+1. Clone the repository
+2. Upload `kaggle.json` to authenticate with Kaggle
+3. Install dependencies:
+   ```bash
+   pip install kagglehub pandas numpy tensorflow
+
+## 🧪 Inference
+Use `predict.py` to run predictions on new images. Example:
+```bash
+python predict.py --image test_image.jpg
+
