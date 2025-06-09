@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const webcamFeed = document.getElementById('webcamFeed');
     const takePictureButton = document.getElementById('takePicture');
     const canvas = document.getElementById('canvas');
-    canvas.width = 640;
-    canvas.height = 480;
 
     startWebcamButton.addEventListener('click', async () => {
         try {
@@ -45,7 +43,24 @@ document.addEventListener('DOMContentLoaded', () => {
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         const dataURL = canvas.toDataURL();
         console.log(dataURL); //Log the picture data URL
-        console.log('Picture taken:', dataURL);
+
+        //Save the picture to the "apples-and-oranges" folder
+        const blob = dataURItoBlob(dataURL);
+        const file = new File([blob], 'picture.jpg', {type: 'image/jpeg;'});
+        saveAs(file, 'picture.jpg', {autoBom: true});
+
+        console.log('Picture taken and saved!');
+    }
+
+    //Helper function to convert data URL to blob
+    function dataURItoBlob(dataURI) {
+        const byteString = atob(dataURI.split(',')[1]);
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(buffer);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([ab], {type: 'image/jpeg'});
     }
 
     // Example: Add a stop button
