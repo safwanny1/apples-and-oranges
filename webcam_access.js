@@ -47,9 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
         //Save the picture to the "apples-and-oranges" folder
         const blob = dataURItoBlob(dataURL);
         const file = new File([blob], 'picture.jpg', {type: 'image/jpeg;'});
-        saveAs(file, 'picture.jpg', {autoBom: true});
+        
 
-        console.log('Picture taken and saved!');
+        try {
+            saveAs(file, 'picture.jpg', {autoBom: true});
+            console.log('Picture taken and saved!');
+        } catch (error) {
+            console.log('Error saving picture:', error);
+        }
     }
 
     //Helper function to convert data URL to blob
