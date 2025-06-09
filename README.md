@@ -1,5 +1,3 @@
-# apples-and-oranges
-
 # # 🍎🍊 Apples vs. Oranges Image Classifier
 A deep learning CNN that classifies apples and oranges using TensorFlow/Keras. Trained in Colab, deployable in VS Code.
 
