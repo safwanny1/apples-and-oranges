@@ -209,7 +209,7 @@ We welcome contributions! Please follow these steps:
 ## 👨‍💻 Authors
 
 - **Zach** - Initial development and model architecture
-- **Chris** - Data preprocessing and augmentation
+- **Cris** - Data preprocessing and augmentation
 - **Safwan** - Evaluation and visualization
 
 *AIIE25 Project - Artificial Intelligence in Engineering Course*
