@@ -2,21 +2,6 @@
 
 A deep learning project that uses Convolutional Neural Networks (CNN) to classify images as either apples or oranges with high accuracy.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Dataset](#dataset)
-- [Usage](#usage)
-- [Model Architecture](#model-architecture)
-- [Results](#results)
-- [Known Issues](#known-issues)
-- [Future Improvements](#future-improvements)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
-
 ## 🎯 Overview
 
 This project implements a binary image classification system using TensorFlow/Keras to distinguish between apples and oranges. The model uses a Convolutional Neural Network architecture with data augmentation techniques to achieve robust classification performance.
