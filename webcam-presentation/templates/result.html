@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Apples or Oranges? Binary Classification with Convolutional Neural Networks</h1>
+    <div id="control">
+        <button id="startWebcam">Start Webcam</button>
+        <button id="stopWebcam">Stop Webcam</button>
+        <button id="takePicture">Take Picture</button>
+    </div>
+
+    <div id="content">
+        <video id="webcamFeed" autoplay playsinline></video>
+        <canvas id="canvas" width="640" height="480"></canvas>
+    </div>
+    
+    <h2 id="predictionText">Prediction: <span id="predictionResult">None</span></h2>
+
+
+
+
+    <!-- <h2>Prediction: {{ label }}</h2>
+    <img src="{{ img_path }}" width="300">
+    <br><a href="/">Try another image</a> -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
